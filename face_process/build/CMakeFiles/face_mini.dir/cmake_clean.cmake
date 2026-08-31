@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/face_mini.dir/link.d"
-  "CMakeFiles/face_mini.dir/src/only.cpp.o"
-  "CMakeFiles/face_mini.dir/src/only.cpp.o.d"
+  "CMakeFiles/face_mini.dir/apps/mini.cpp.o"
+  "CMakeFiles/face_mini.dir/apps/mini.cpp.o.d"
   "face_mini"
   "face_mini.pdb"
 )

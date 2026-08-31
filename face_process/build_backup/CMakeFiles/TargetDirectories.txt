@@ -1,3 +1,0 @@
-/root/ncnn2/face_app/build/CMakeFiles/face_app.dir
-/root/ncnn2/face_app/build/CMakeFiles/edit_cache.dir
-/root/ncnn2/face_app/build/CMakeFiles/rebuild_cache.dir

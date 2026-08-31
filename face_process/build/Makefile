@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/ncnn2/face_app
+CMAKE_SOURCE_DIR = /root/ncnn_face_official
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/ncnn2/face_app/build
+CMAKE_BINARY_DIR = /root/ncnn_face_official/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -85,11 +85,56 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/ncnn2/face_app/build/CMakeFiles /root/ncnn2/face_app/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/ncnn_face_official/build/CMakeFiles /root/ncnn_face_official/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/ncnn2/face_app/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/ncnn_face_official/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,30 +162,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named face_app
+# Target rules for targets named face_core
 
 # Build rule for target.
-face_app: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 face_app
-.PHONY : face_app
+face_core: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 face_core
+.PHONY : face_core
 
 # fast build rule for target.
-face_app/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_app.dir/build.make CMakeFiles/face_app.dir/build
-.PHONY : face_app/fast
+face_core/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/build
+.PHONY : face_core/fast
 
 #=============================================================================
-# Target rules for targets named face_timer
+# Target rules for targets named face_main
 
 # Build rule for target.
-face_timer: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 face_timer
-.PHONY : face_timer
+face_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 face_main
+.PHONY : face_main
 
 # fast build rule for target.
-face_timer/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_timer.dir/build.make CMakeFiles/face_timer.dir/build
-.PHONY : face_timer/fast
+face_main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_main.dir/build.make CMakeFiles/face_main.dir/build
+.PHONY : face_main/fast
 
 #=============================================================================
 # Target rules for targets named face_mini
@@ -155,77 +200,234 @@ face_mini/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_mini.dir/build.make CMakeFiles/face_mini.dir/build
 .PHONY : face_mini/fast
 
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
+#=============================================================================
+# Target rules for targets named face_debug
+
+# Build rule for target.
+face_debug: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 face_debug
+.PHONY : face_debug
+
+# fast build rule for target.
+face_debug/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_debug.dir/build.make CMakeFiles/face_debug.dir/build
+.PHONY : face_debug/fast
+
+apps/debug.o: apps/debug.cpp.o
+.PHONY : apps/debug.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_app.dir/build.make CMakeFiles/face_app.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+apps/debug.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_debug.dir/build.make CMakeFiles/face_debug.dir/apps/debug.cpp.o
+.PHONY : apps/debug.cpp.o
 
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
+apps/debug.i: apps/debug.cpp.i
+.PHONY : apps/debug.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_app.dir/build.make CMakeFiles/face_app.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+apps/debug.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_debug.dir/build.make CMakeFiles/face_debug.dir/apps/debug.cpp.i
+.PHONY : apps/debug.cpp.i
 
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
+apps/debug.s: apps/debug.cpp.s
+.PHONY : apps/debug.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_app.dir/build.make CMakeFiles/face_app.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+apps/debug.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_debug.dir/build.make CMakeFiles/face_debug.dir/apps/debug.cpp.s
+.PHONY : apps/debug.cpp.s
 
-src/only.o: src/only.cpp.o
-.PHONY : src/only.o
+apps/main.o: apps/main.cpp.o
+.PHONY : apps/main.o
 
 # target to build an object file
-src/only.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_mini.dir/build.make CMakeFiles/face_mini.dir/src/only.cpp.o
-.PHONY : src/only.cpp.o
+apps/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_main.dir/build.make CMakeFiles/face_main.dir/apps/main.cpp.o
+.PHONY : apps/main.cpp.o
 
-src/only.i: src/only.cpp.i
-.PHONY : src/only.i
+apps/main.i: apps/main.cpp.i
+.PHONY : apps/main.i
 
 # target to preprocess a source file
-src/only.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_mini.dir/build.make CMakeFiles/face_mini.dir/src/only.cpp.i
-.PHONY : src/only.cpp.i
+apps/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_main.dir/build.make CMakeFiles/face_main.dir/apps/main.cpp.i
+.PHONY : apps/main.cpp.i
 
-src/only.s: src/only.cpp.s
-.PHONY : src/only.s
+apps/main.s: apps/main.cpp.s
+.PHONY : apps/main.s
 
 # target to generate assembly for a file
-src/only.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_mini.dir/build.make CMakeFiles/face_mini.dir/src/only.cpp.s
-.PHONY : src/only.cpp.s
+apps/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_main.dir/build.make CMakeFiles/face_main.dir/apps/main.cpp.s
+.PHONY : apps/main.cpp.s
 
-src/time.o: src/time.cpp.o
-.PHONY : src/time.o
+apps/mini.o: apps/mini.cpp.o
+.PHONY : apps/mini.o
 
 # target to build an object file
-src/time.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_timer.dir/build.make CMakeFiles/face_timer.dir/src/time.cpp.o
-.PHONY : src/time.cpp.o
+apps/mini.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_mini.dir/build.make CMakeFiles/face_mini.dir/apps/mini.cpp.o
+.PHONY : apps/mini.cpp.o
 
-src/time.i: src/time.cpp.i
-.PHONY : src/time.i
+apps/mini.i: apps/mini.cpp.i
+.PHONY : apps/mini.i
 
 # target to preprocess a source file
-src/time.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_timer.dir/build.make CMakeFiles/face_timer.dir/src/time.cpp.i
-.PHONY : src/time.cpp.i
+apps/mini.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_mini.dir/build.make CMakeFiles/face_mini.dir/apps/mini.cpp.i
+.PHONY : apps/mini.cpp.i
 
-src/time.s: src/time.cpp.s
-.PHONY : src/time.s
+apps/mini.s: apps/mini.cpp.s
+.PHONY : apps/mini.s
 
 # target to generate assembly for a file
-src/time.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_timer.dir/build.make CMakeFiles/face_timer.dir/src/time.cpp.s
-.PHONY : src/time.cpp.s
+apps/mini.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_mini.dir/build.make CMakeFiles/face_mini.dir/apps/mini.cpp.s
+.PHONY : apps/mini.cpp.s
+
+src/cli.o: src/cli.cpp.o
+.PHONY : src/cli.o
+
+# target to build an object file
+src/cli.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/cli.cpp.o
+.PHONY : src/cli.cpp.o
+
+src/cli.i: src/cli.cpp.i
+.PHONY : src/cli.i
+
+# target to preprocess a source file
+src/cli.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/cli.cpp.i
+.PHONY : src/cli.cpp.i
+
+src/cli.s: src/cli.cpp.s
+.PHONY : src/cli.s
+
+# target to generate assembly for a file
+src/cli.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/cli.cpp.s
+.PHONY : src/cli.cpp.s
+
+src/face_database.o: src/face_database.cpp.o
+.PHONY : src/face_database.o
+
+# target to build an object file
+src/face_database.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/face_database.cpp.o
+.PHONY : src/face_database.cpp.o
+
+src/face_database.i: src/face_database.cpp.i
+.PHONY : src/face_database.i
+
+# target to preprocess a source file
+src/face_database.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/face_database.cpp.i
+.PHONY : src/face_database.cpp.i
+
+src/face_database.s: src/face_database.cpp.s
+.PHONY : src/face_database.s
+
+# target to generate assembly for a file
+src/face_database.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/face_database.cpp.s
+.PHONY : src/face_database.cpp.s
+
+src/face_pipeline.o: src/face_pipeline.cpp.o
+.PHONY : src/face_pipeline.o
+
+# target to build an object file
+src/face_pipeline.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/face_pipeline.cpp.o
+.PHONY : src/face_pipeline.cpp.o
+
+src/face_pipeline.i: src/face_pipeline.cpp.i
+.PHONY : src/face_pipeline.i
+
+# target to preprocess a source file
+src/face_pipeline.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/face_pipeline.cpp.i
+.PHONY : src/face_pipeline.cpp.i
+
+src/face_pipeline.s: src/face_pipeline.cpp.s
+.PHONY : src/face_pipeline.s
+
+# target to generate assembly for a file
+src/face_pipeline.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/face_pipeline.cpp.s
+.PHONY : src/face_pipeline.cpp.s
+
+src/json_output.o: src/json_output.cpp.o
+.PHONY : src/json_output.o
+
+# target to build an object file
+src/json_output.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/json_output.cpp.o
+.PHONY : src/json_output.cpp.o
+
+src/json_output.i: src/json_output.cpp.i
+.PHONY : src/json_output.i
+
+# target to preprocess a source file
+src/json_output.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/json_output.cpp.i
+.PHONY : src/json_output.cpp.i
+
+src/json_output.s: src/json_output.cpp.s
+.PHONY : src/json_output.s
+
+# target to generate assembly for a file
+src/json_output.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/json_output.cpp.s
+.PHONY : src/json_output.cpp.s
+
+src/mobilefacenet.o: src/mobilefacenet.cpp.o
+.PHONY : src/mobilefacenet.o
+
+# target to build an object file
+src/mobilefacenet.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/mobilefacenet.cpp.o
+.PHONY : src/mobilefacenet.cpp.o
+
+src/mobilefacenet.i: src/mobilefacenet.cpp.i
+.PHONY : src/mobilefacenet.i
+
+# target to preprocess a source file
+src/mobilefacenet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/mobilefacenet.cpp.i
+.PHONY : src/mobilefacenet.cpp.i
+
+src/mobilefacenet.s: src/mobilefacenet.cpp.s
+.PHONY : src/mobilefacenet.s
+
+# target to generate assembly for a file
+src/mobilefacenet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/mobilefacenet.cpp.s
+.PHONY : src/mobilefacenet.cpp.s
+
+src/scrfd.o: src/scrfd.cpp.o
+.PHONY : src/scrfd.o
+
+# target to build an object file
+src/scrfd.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/scrfd.cpp.o
+.PHONY : src/scrfd.cpp.o
+
+src/scrfd.i: src/scrfd.cpp.i
+.PHONY : src/scrfd.i
+
+# target to preprocess a source file
+src/scrfd.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/scrfd.cpp.i
+.PHONY : src/scrfd.cpp.i
+
+src/scrfd.s: src/scrfd.cpp.s
+.PHONY : src/scrfd.s
+
+# target to generate assembly for a file
+src/scrfd.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/face_core.dir/build.make CMakeFiles/face_core.dir/src/scrfd.cpp.s
+.PHONY : src/scrfd.cpp.s
 
 # Help Target
 help:
@@ -234,19 +436,42 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... face_app"
+	@echo "... face_core"
+	@echo "... face_debug"
+	@echo "... face_main"
 	@echo "... face_mini"
-	@echo "... face_timer"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
-	@echo "... src/only.o"
-	@echo "... src/only.i"
-	@echo "... src/only.s"
-	@echo "... src/time.o"
-	@echo "... src/time.i"
-	@echo "... src/time.s"
+	@echo "... apps/debug.o"
+	@echo "... apps/debug.i"
+	@echo "... apps/debug.s"
+	@echo "... apps/main.o"
+	@echo "... apps/main.i"
+	@echo "... apps/main.s"
+	@echo "... apps/mini.o"
+	@echo "... apps/mini.i"
+	@echo "... apps/mini.s"
+	@echo "... src/cli.o"
+	@echo "... src/cli.i"
+	@echo "... src/cli.s"
+	@echo "... src/face_database.o"
+	@echo "... src/face_database.i"
+	@echo "... src/face_database.s"
+	@echo "... src/face_pipeline.o"
+	@echo "... src/face_pipeline.i"
+	@echo "... src/face_pipeline.s"
+	@echo "... src/json_output.o"
+	@echo "... src/json_output.i"
+	@echo "... src/json_output.s"
+	@echo "... src/mobilefacenet.o"
+	@echo "... src/mobilefacenet.i"
+	@echo "... src/mobilefacenet.s"
+	@echo "... src/scrfd.o"
+	@echo "... src/scrfd.i"
+	@echo "... src/scrfd.s"
 .PHONY : help
 
 

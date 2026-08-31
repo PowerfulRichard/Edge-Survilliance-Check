@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/root/ncnn2/face_app/build/cmake_install.cmake"
+		"/root/ncnn_face_official/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

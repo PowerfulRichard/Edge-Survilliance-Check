@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/root/ncnn2/face_app/src/only.cpp" "CMakeFiles/face_mini.dir/src/only.cpp.o" "gcc" "CMakeFiles/face_mini.dir/src/only.cpp.o.d"
+  "/root/ncnn_face_official/apps/mini.cpp" "CMakeFiles/face_mini.dir/apps/mini.cpp.o" "gcc" "CMakeFiles/face_mini.dir/apps/mini.cpp.o.d"
   "" "face_mini" "gcc" "CMakeFiles/face_mini.dir/link.d"
   )
 

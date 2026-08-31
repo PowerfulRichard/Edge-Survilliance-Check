@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/ncnn2/face_app
+CMAKE_SOURCE_DIR = /root/ncnn_face_official
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/ncnn2/face_app/build
+CMAKE_BINARY_DIR = /root/ncnn_face_official/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/face_mini.dir/depend.make
@@ -72,90 +72,42 @@ include CMakeFiles/face_mini.dir/flags.make
 CMakeFiles/face_mini.dir/codegen:
 .PHONY : CMakeFiles/face_mini.dir/codegen
 
-CMakeFiles/face_mini.dir/src/only.cpp.o: CMakeFiles/face_mini.dir/flags.make
-CMakeFiles/face_mini.dir/src/only.cpp.o: /root/ncnn2/face_app/src/only.cpp
-CMakeFiles/face_mini.dir/src/only.cpp.o: CMakeFiles/face_mini.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/ncnn2/face_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/face_mini.dir/src/only.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_mini.dir/src/only.cpp.o -MF CMakeFiles/face_mini.dir/src/only.cpp.o.d -o CMakeFiles/face_mini.dir/src/only.cpp.o -c /root/ncnn2/face_app/src/only.cpp
+CMakeFiles/face_mini.dir/apps/mini.cpp.o: CMakeFiles/face_mini.dir/flags.make
+CMakeFiles/face_mini.dir/apps/mini.cpp.o: /root/ncnn_face_official/apps/mini.cpp
+CMakeFiles/face_mini.dir/apps/mini.cpp.o: CMakeFiles/face_mini.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/ncnn_face_official/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/face_mini.dir/apps/mini.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/face_mini.dir/apps/mini.cpp.o -MF CMakeFiles/face_mini.dir/apps/mini.cpp.o.d -o CMakeFiles/face_mini.dir/apps/mini.cpp.o -c /root/ncnn_face_official/apps/mini.cpp
 
-CMakeFiles/face_mini.dir/src/only.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/face_mini.dir/src/only.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/ncnn2/face_app/src/only.cpp > CMakeFiles/face_mini.dir/src/only.cpp.i
+CMakeFiles/face_mini.dir/apps/mini.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/face_mini.dir/apps/mini.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/ncnn_face_official/apps/mini.cpp > CMakeFiles/face_mini.dir/apps/mini.cpp.i
 
-CMakeFiles/face_mini.dir/src/only.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/face_mini.dir/src/only.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/ncnn2/face_app/src/only.cpp -o CMakeFiles/face_mini.dir/src/only.cpp.s
+CMakeFiles/face_mini.dir/apps/mini.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/face_mini.dir/apps/mini.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/ncnn_face_official/apps/mini.cpp -o CMakeFiles/face_mini.dir/apps/mini.cpp.s
 
 # Object files for target face_mini
 face_mini_OBJECTS = \
-"CMakeFiles/face_mini.dir/src/only.cpp.o"
+"CMakeFiles/face_mini.dir/apps/mini.cpp.o"
 
 # External object files for target face_mini
 face_mini_EXTERNAL_OBJECTS =
 
-face_mini: CMakeFiles/face_mini.dir/src/only.cpp.o
+face_mini: CMakeFiles/face_mini.dir/apps/mini.cpp.o
 face_mini: CMakeFiles/face_mini.dir/build.make
 face_mini: CMakeFiles/face_mini.dir/compiler_depend.ts
+face_mini: libface_core.a
 face_mini: /root/ncnn2/ncnn/build/install/lib/libncnn.a
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_stitching.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_alphamat.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_aruco.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_bgsegm.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_bioinspired.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_ccalib.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_cvv.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_dnn_objdetect.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_dnn_superres.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_dpm.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_face.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_freetype.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_fuzzy.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_hdf.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_hfs.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_img_hash.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_intensity_transform.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_line_descriptor.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_mcc.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_quality.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_rapid.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_reg.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_rgbd.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_saliency.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_shape.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_signal.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_stereo.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_structured_light.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_superres.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_surface_matching.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_tracking.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_videostab.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_viz.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_wechat_qrcode.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_xobjdetect.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_xphoto.so.4.10.0
 face_mini: /usr/lib/gcc/aarch64-linux-gnu/15/libgomp.so
 face_mini: /usr/lib/aarch64-linux-gnu/libpthread.a
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_highgui.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_datasets.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_plot.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_text.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_ml.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_phase_unwrapping.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_optflow.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_ximgproc.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_video.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_videoio.so.4.10.0
 face_mini: /usr/lib/aarch64-linux-gnu/libopencv_imgcodecs.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_objdetect.so.4.10.0
 face_mini: /usr/lib/aarch64-linux-gnu/libopencv_calib3d.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_dnn.so.4.10.0
 face_mini: /usr/lib/aarch64-linux-gnu/libopencv_features2d.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_flann.so.4.10.0
-face_mini: /usr/lib/aarch64-linux-gnu/libopencv_photo.so.4.10.0
 face_mini: /usr/lib/aarch64-linux-gnu/libopencv_imgproc.so.4.10.0
+face_mini: /usr/lib/aarch64-linux-gnu/libopencv_flann.so.4.10.0
 face_mini: /usr/lib/aarch64-linux-gnu/libopencv_core.so.4.10.0
 face_mini: CMakeFiles/face_mini.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/ncnn2/face_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable face_mini"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/ncnn_face_official/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable face_mini"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/face_mini.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -167,6 +119,6 @@ CMakeFiles/face_mini.dir/clean:
 .PHONY : CMakeFiles/face_mini.dir/clean
 
 CMakeFiles/face_mini.dir/depend:
-	cd /root/ncnn2/face_app/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/ncnn2/face_app /root/ncnn2/face_app /root/ncnn2/face_app/build /root/ncnn2/face_app/build /root/ncnn2/face_app/build/CMakeFiles/face_mini.dir/DependInfo.cmake "--color=$(COLOR)" face_mini
+	cd /root/ncnn_face_official/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/ncnn_face_official /root/ncnn_face_official /root/ncnn_face_official/build /root/ncnn_face_official/build /root/ncnn_face_official/build/CMakeFiles/face_mini.dir/DependInfo.cmake "--color=$(COLOR)" face_mini
 .PHONY : CMakeFiles/face_mini.dir/depend
 

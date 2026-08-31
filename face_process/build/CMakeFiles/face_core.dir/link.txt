@@ -1,0 +1,2 @@
+/usr/bin/ar qc libface_core.a CMakeFiles/face_core.dir/src/scrfd.cpp.o CMakeFiles/face_core.dir/src/mobilefacenet.cpp.o CMakeFiles/face_core.dir/src/face_database.cpp.o CMakeFiles/face_core.dir/src/face_pipeline.cpp.o CMakeFiles/face_core.dir/src/cli.cpp.o CMakeFiles/face_core.dir/src/json_output.cpp.o
+/usr/bin/ranlib libface_core.a
