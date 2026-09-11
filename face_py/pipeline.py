@@ -11,12 +11,12 @@ import RPi.GPIO as GPIO
 from concurrent.futures import ThreadPoolExecutor
 
 # ================= 配置参数区 =================
-RTSP_URL = "rtsp://admin:hzk0714...@mercury.hurl.live:554/stream2"
+RTSP_URL = "rtsp://"
 TARGET_FPS = 1             # 触发后每秒调取的帧数 (变量x)
 RESIZE_WIDTH = 320         # 缩放宽度
 RESIZE_HEIGHT = 240        # 缩放高度
 SENSOR_PIN = 18            # 人体传感器 GPIO 引脚 (BCM编码)
-HTTP_POST_URL = "http://server.hurl.live:9090/api/report"
+HTTP_POST_URL = "http://"
 FACE_APP_CMD = "./face_mini"
 
 # ================= 业务策略区 =================
